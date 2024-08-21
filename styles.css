@@ -1,1 +1,33 @@
+.light-theme {
+    --bg-color: #000;
+    --text-color: #fff;
+}
 
+.dark-theme {
+    --bg-color: #000;
+    --text-color: #fff;
+}
+
+.theme-switch {
+    position: absolute; 
+    bottom: 1rem;
+    right: 1rem;
+
+    &:hover {
+        scale: 1.2; 
+        font-weight: 800;
+    }
+}
+
+
+
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+
+header > .title {
+    font-size: 1.5em;
+}
