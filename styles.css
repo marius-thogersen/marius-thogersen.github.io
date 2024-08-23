@@ -49,7 +49,6 @@ body {
     align-items: center;
 }
 
-
   
   * {
     margin: 0;
@@ -323,9 +322,13 @@ body {
     outline: 5px solid tomato 5px solid gold;
     margin: 2em auto;
     background-color: #000;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.96), rgba(0, 0, 0, 0.6)),url("fastest_runner_on_the_planet.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 65% 0;
     border-radius: var(--rounded);
     position: relative;
-
+    /* animation: move-background 12s linear alternate infinite; */
     a {
         color: white;
         position: absolute;
@@ -335,6 +338,13 @@ body {
         translate: -50% -50%;
     }
   }
+
+  @keyframes move-background {
+    to {
+        background-position: right top;
+    }
+  }
+
   @property --angle {
     syntax: "<angle>";
     inherits: true;
