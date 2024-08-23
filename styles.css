@@ -325,6 +325,15 @@ body {
     background-color: #000;
     border-radius: var(--rounded);
     position: relative;
+
+    a {
+        color: white;
+        position: absolute;
+        width: 100%;
+        left: 50%;
+        top: 50%;
+        translate: -50% -50%;
+    }
   }
   @property --angle {
     syntax: "<angle>";
