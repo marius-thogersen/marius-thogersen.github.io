@@ -334,14 +334,13 @@ input:valid {
   justify-content: flex-end;
   padding: 1rem;
   width: clamp(250px, 95vw, 500px);
-  aspect-ratio: 3/5;
-  outline: 5px solid tomato 5px solid gold;
+  height: 80dvh;
   margin: 2em auto;
   background-color: #000;
   background-image: linear-gradient(
       to top,
       rgba(0, 0, 0, 0.96) 10%,
-      rgba(0, 0, 0, 0.2)
+      rgba(0, 0, 0, 0.35)
     ),
     url("fastest_runner_on_the_planet.jpg");
   background-size: cover;
