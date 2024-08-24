@@ -100,11 +100,12 @@ html {
 
 section {
   scroll-snap-align: start;
-  padding-top: 5rem;
-  height: 100vh;
+
+  height: 100dvh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
+  /* justify-content: center; */
 }
 
 fieldset {
@@ -123,6 +124,10 @@ h1 {
 
 .text-light {
   font-weight: 300;
+}
+
+.push-top {
+  margin-bottom: auto;
 }
 
 h1:hover {
@@ -318,6 +323,7 @@ input:valid {
 .signup {
   display: block;
   text-align: center;
+  padding-top: 1rem;
 }
 
 .signup-card {
@@ -326,16 +332,16 @@ input:valid {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-
-  width: clamp(250px, 80vw, 500px);
+  padding: 1rem;
+  width: clamp(250px, 95vw, 500px);
   aspect-ratio: 3/5;
   outline: 5px solid tomato 5px solid gold;
   margin: 2em auto;
   background-color: #000;
   background-image: linear-gradient(
       to top,
-      rgba(0, 0, 0, 0.96),
-      rgba(0, 0, 0, 0.4)
+      rgba(0, 0, 0, 0.96) 10%,
+      rgba(0, 0, 0, 0.2)
     ),
     url("fastest_runner_on_the_planet.jpg");
   background-size: cover;
