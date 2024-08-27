@@ -149,6 +149,12 @@ h1 {
 .push-top {
   margin-bottom: auto;
 }
+.mb-1 {
+  margin-bottom: 1rem;
+}
+.mt-1 {
+  margin-top: 1rem;
+}
 
 h1:hover {
   --shadow-spread: 3rem;
