@@ -81,15 +81,18 @@ body {
 .star {
   --jump: -50px;
   --skip: 0px;
+  --start: 0px;
   z-index: 1;
   position: absolute;
+  top: var(--start);
   height: 5px;
   width: 5px;
   border-radius: 50%;
   background-color: var(--text-color);
   animation: star-bounce-y 1400ms
-      cubic-bezier(0.5, var(--jump), 0.5, var(--jump)) 50ms,
-    shift-x 1400ms ease-out 50ms;
+      cubic-bezier(0.5, calc(var(--jump)), 0.5, calc(var(--jump) / 2)) 50ms
+      forwards,
+    shift-x 1900ms ease-out 50ms;
   pointer-events: none;
 
   opacity: 0.7;
@@ -103,7 +106,7 @@ body {
   100% {
     opacity: 0;
     scale: 0.2;
-    transform: translateY(100vh);
+    top: 100vh;
   }
 }
 
