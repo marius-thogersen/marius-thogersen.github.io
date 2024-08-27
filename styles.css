@@ -22,6 +22,7 @@
 
 .theme-switch {
   position: fixed;
+  opacity: 0.5;
   bottom: 0.5rem;
   cursor: pointer;
   user-select: none;
@@ -111,7 +112,7 @@ section {
   padding: 0.5rem 2rem;
   border: 2px solid;
   a {
-    color: #fff;
+    color: var(--text-color);
     text-decoration: none;
   }
 }
