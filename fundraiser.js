@@ -28,5 +28,6 @@ addEventListener("DOMContentLoaded", () => {
 addEventListener("resize", updateWidth)
 
 function updateWidth() {
-    document.getElementById("meta-data").innerText = document.body.getBoundingClientRect().width;
+    const rect = document.body.getBoundingClientRect();
+    document.getElementById("meta-data").innerText = rect.width + "x" + rect.height;
 }
