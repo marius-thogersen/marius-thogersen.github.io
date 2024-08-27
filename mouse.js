@@ -10,7 +10,6 @@ addEventListener("DOMContentLoaded", () => {
     addEventListener("touchstart", (e) => {
         for (let i = 0; i < 10; i++) {
             createStar(e.touches[0].clientX, e.touches[0].clientY);
-            console.log(e);
         }
     });
 
