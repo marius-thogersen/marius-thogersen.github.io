@@ -20,7 +20,8 @@
   --text-color: #fff;
 }
 
-.theme-switch {
+.theme-switch,
+.back-to-home {
   position: fixed;
   opacity: 0.5;
   bottom: 0.5rem;
