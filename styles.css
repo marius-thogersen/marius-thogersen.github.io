@@ -304,7 +304,7 @@ nav a {
   background-image: linear-gradient(
       to top,
       rgba(0, 0, 0, 0.96) 10%,
-      rgba(0, 0, 0, 0.35)
+      rgba(0, 0, 0, 0.45)
     ),
     url("fastest_runner_on_the_planet.jpg");
   background-size: cover;
@@ -312,11 +312,30 @@ nav a {
   background-position-x: 45%;
   border-radius: var(--rounded);
   position: relative;
-  animation: move-background-in 45s ease-out forwards alternate infinite;
+
   a {
-    color: rgb(220, 198, 255);
+    /* color: rgb(229, 217, 248); */
+    color: transparent;
+    background: linear-gradient(
+      to right,
+      rgb(228, 116, 64),
+      rgb(255, 215, 0),
+      rgb(199, 74, 2)
+    );
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    clip-path: text;
     text-decoration: none;
     margin: 1.5rem;
+    position: relative;
+    animation: link 0.9s infinite alternate;
+  }
+}
+
+@keyframes link {
+  to {
+    scale: 1.1;
   }
 }
 
