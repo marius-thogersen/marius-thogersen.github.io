@@ -312,7 +312,7 @@ nav a {
   background-position-x: 45%;
   border-radius: var(--rounded);
   position: relative;
-
+  animation: move-background-in 25s linear infinite alternate;
   a {
     /* color: rgb(229, 217, 248); */
     color: transparent;
@@ -367,7 +367,7 @@ nav a {
   animation: spinningColor 2.3s linear infinite;
 }
 .hero-card::after {
-  filter: blur(5px);
+  filter: blur(60px);
 }
 
 @keyframes spinningColor {
