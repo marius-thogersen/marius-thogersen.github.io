@@ -283,7 +283,7 @@ nav a {
 
 .hero {
   height: 100dvh;
-  padding: 1%;
+  padding: 5% 2%;
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -297,8 +297,8 @@ nav a {
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  width: clamp(250px, 98%, 600px);
-  height: min(98dvh, 800px);
+  width: clamp(250px, 95%, 600px);
+  height: min(95dvh, 800px);
 
   background-color: #000;
   background-image: linear-gradient(
@@ -313,26 +313,28 @@ nav a {
   border-radius: var(--rounded);
   position: relative;
   animation: move-background-in 25s linear infinite alternate;
-  a {
-    /* color: rgb(229, 217, 248); */
-    color: transparent;
-    background: linear-gradient(
-      to right,
-      rgb(228, 116, 64),
-      rgb(255, 215, 0),
-      rgb(199, 74, 2)
-    );
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    clip-path: text;
-    text-decoration: none;
-    margin: 1.5rem;
-    position: relative;
-    animation: link 0.9s infinite alternate;
-  }
 }
-
+.cta-btn {
+  color: transparent;
+  text-wrap: nowrap;
+  background: linear-gradient(
+    to right,
+    rgb(228, 116, 64),
+    rgb(255, 215, 0),
+    rgb(199, 74, 2)
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  clip-path: text;
+  text-decoration: none;
+  margin: 1.5rem;
+  position: relative;
+  animation: link 0.9s infinite alternate;
+  border: 2px solid rgba(255, 217, 0, 0.438);
+  border-radius: 0.25rem;
+  padding: 0.25rem 1rem;
+}
 @keyframes link {
   to {
     scale: 1.1;
