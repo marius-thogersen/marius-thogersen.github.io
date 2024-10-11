@@ -289,6 +289,9 @@ nav a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  rotate: -3deg;
+  transition: rotate 200ms;
+  animation: slideIn 0.8s ease-in-out forwards;
 }
 
 .hero-card {
@@ -314,9 +317,33 @@ nav a {
   position: relative;
   animation: move-background-in 25s linear infinite alternate;
 }
+
+.hero:has(.hero-card:hover) {
+  rotate: 4deg;
+}
+
+.hero-card::before,
+.hero-card::after {
+  content: "";
+  position: absolute;
+  background-image: conic-gradient(
+    from var(--angle),
+    gold,
+    dodgerblue,
+    limegreen,
+    gold
+  );
+  inset: -1px;
+  z-index: -1;
+  border-radius: var(--rounded);
+  animation: spinningColor 2.3s linear infinite;
+}
+.hero-card::after {
+  filter: blur(60px);
+}
+
 .cta-btn {
   color: transparent;
-  text-wrap: nowrap;
   background: linear-gradient(
     to right,
     rgb(228, 116, 64),
@@ -347,31 +374,17 @@ nav a {
   }
 }
 
+@keyframes slideIn {
+  from {
+    transform: translateY(-50vh);
+  }
+}
+
 @property --angle {
   syntax: "<angle>";
   inherits: true;
   initial-value: 0deg;
 }
-.hero-card::before,
-.hero-card::after {
-  content: "";
-  position: absolute;
-  background-image: conic-gradient(
-    from var(--angle),
-    gold,
-    dodgerblue,
-    limegreen,
-    gold
-  );
-  inset: -1px;
-  z-index: -1;
-  border-radius: var(--rounded);
-  animation: spinningColor 2.3s linear infinite;
-}
-.hero-card::after {
-  filter: blur(60px);
-}
-
 @keyframes spinningColor {
   to {
     --angle: 360deg;
