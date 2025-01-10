@@ -27,8 +27,6 @@ async function readCSV() {
         document.getElementById("data-table").appendChild(rowDiv);
     })
 
-
-
 }
 
 
