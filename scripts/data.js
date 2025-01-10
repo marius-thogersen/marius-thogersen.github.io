@@ -9,34 +9,25 @@ async function readCSV() {
     //build data structure 
     console.log("DATA:", data)
 
-    const ignoreFields = [0, 2, 3, 5, 9, 11, 17, 19, 20, 23, 26, 27]
+    const ignoreFields = [0, 2, 3, 5, 9, 11, 17, 19, 20, 22,23,26, 27]
 
     const rows = data.split("\n");
     const myData = rows.map(row => splitRow(row, ignoreFields)).filter(row => row.length != 0)
 
     console.log(myData)
 
-    // console.log(splitRow(data))
-    //build and render html
 
+    myData.forEach((row, rowIndex) => {
+        const tr = document.createElement("tr");
+        document.getElementById("data").appendChild(tr);
+        row.forEach(el => {
+            const cell = document.createElement(rowIndex == 0 ? "th": "td");
+            cell.innerText = el
+            tr.appendChild(cell)
+        });
+        
 
-
-    // dataArr.forEach((row, rowIndex) => {
-    //     const rowDiv = document.createElement("tr");
-    //     rowDiv.classList.add("row")
-    //     rowDiv.dataset.index = rowIndex;
-    //     splitRow(row).forEach((data, index) => {
-    //         if (ignoreFields.includes(index)) return;
-    //         const text = rowIndex == 0 ? "" + index + ". " + data : data;
-    //         const textNode = document.createTextNode(text)
-    //         const el = document.createElement(rowIndex != 0 ? "td" : "th")
-    //         el.appendChild(textNode)
-    //         rowDiv.appendChild(el)
-    //     })
-
-    //     document.getElementById("data-table").appendChild(rowDiv);
-    // })
-
+    })
 }
 
 

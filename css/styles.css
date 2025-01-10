@@ -240,8 +240,6 @@ h1 {
   background: #ffffffbf; /* Color when hovering */
 }
 
-
-
 .row {
   font-size: small;
   display: flex;
@@ -254,6 +252,10 @@ table {
 }
 
 td, th {
-  border-inline: 1px solid limegreen;
-  padding-inline: 0.25rem;
+  border: 1px solid rgb(160, 204, 160);
+  padding-inline: .5rem;
+}
+
+td {
+  text-align: end;
 }
