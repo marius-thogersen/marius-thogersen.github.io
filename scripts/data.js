@@ -11,7 +11,7 @@ async function readCSV() {
 
     const ignoreFields = [0, 2, 3, 5, 9, 11, 17, 19, 20, 23, 26, 27]
 
-    const rows = data.split("\r");
+    const rows = data.split("\n");
     const myData = rows.map(row => splitRow(row, ignoreFields)).filter(row => row.length != 0)
 
     console.log(myData)
