@@ -20,6 +20,12 @@
   --text-color: #fff;
 }
 
+.space-background {
+  background-image: url('./space.jpeg');
+  background-repeat: no-repeat;
+  object-fit: contain;
+}
+
 .theme-switch,
 .back-to-home {
   position: fixed;
@@ -37,22 +43,19 @@
     font-weight: 800;
   }
 }
-
+/* 
 .theme-switch,
 .more-info-link {
   display: none;
-}
+} */
 
 .theme-switch {
   right: 1rem;
 }
-.back-to-home {
-  color: var(--text-color);
-  text-decoration: none;
-}
 
 .meta-data {
   position: absolute;
+  color: #535353;
   bottom: 0.5rem;
   right: 0.5rem;
   font-size: 0.75em;
@@ -63,6 +66,8 @@ body {
   font-weight: 400;
   font-style: normal;
   line-height: 1.5;
+  letter-spacing: 0.25ch;
+  
 
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -74,60 +79,21 @@ body {
   align-items: center;
 }
 
-#home {
-  margin-top: 2rem;
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.star {
-  --jump: -50px;
-  --skip: 0px;
-  --start: 0px;
-  z-index: 1;
-  position: absolute;
-  top: var(--start);
-  height: 5px;
-  width: 5px;
-  border-radius: 50%;
-  background-color: var(--text-color);
-  animation: star-bounce-y 1400ms
-      cubic-bezier(0.5, calc(var(--jump)), 0.5, calc(var(--jump) / 2)) forwards,
-    shift-x 1900ms ease-out 50ms;
-  pointer-events: none;
-
-  opacity: 0.7;
-}
 @keyframes shift-x {
   to {
     transform: translateX(var(--skip));
-  }
-}
-@keyframes star-bounce-y {
-  100% {
-    opacity: 0;
-    scale: 0.2;
-    top: 100vh;
   }
 }
 
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
-}
-
-.more-info-link {
-  /* display: inline; */
-  padding: 0.5rem 2rem;
-  border: 2px solid;
-  a {
-    color: var(--text-color);
-    text-decoration: none;
-  }
 }
 
 h1 {
@@ -138,10 +104,13 @@ h1 {
   transition: all 0.2s ease;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .text-light {
   font-weight: 300;
 }
-
 .text-lg {
   font-size: 1.5rem;
 }
@@ -156,48 +125,14 @@ h1 {
   margin-top: 1rem;
 }
 
-h1:hover {
-  --shadow-spread: 3rem;
-  outline: 0.5rem dotted limegreen;
-  padding: 1.5rem;
-  border-radius: 10rem;
-  box-shadow: 0 0 var(--shadow-spread) 4.5rem gold inset, 0 0 1rem 1rem gold;
-  animation: shadow-fade 0.3s ease-out forwards;
-}
-@keyframes shadow-fade {
-  to {
-    box-shadow: 0 0 calc(var(--shaodw-spread) / 2) 0.1rem gold inset,
-      0 0 1rem 1rem gold;
-  }
-}
-
-nav {
-  position: fixed;
-  inset: auto 2rem 3rem;
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: clamp(0.5rem, 2.5vw, 3rem);
-  background-color: var(--bg-color-nav);
-  border-radius: 0.5rem;
-}
-nav a {
-  font-size: clamp(0.875rem, 2.5vw, 1rem);
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  color: var(--link-color);
-}
-
 .widget > .tabs {
   user-select: none;
 }
 
 .widget {
-  width: clamp(200px, 80dvw, 600px);
+  width: clamp(200px, 100dvw, 600px);
   padding: 1rem;
-  margin: 2rem auto;
+  margin: 1rem auto;
   border-radius: 1rem;
   backdrop-filter: grayscale(60%);
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
@@ -258,7 +193,8 @@ nav a {
 }
 
 .tab-content {
-  padding: 1rem;
+  padding: 0.5rem;
+  text-align: center;
 }
 
 [class^="tab-content-"] {
@@ -278,116 +214,6 @@ nav a {
   }
   to {
     opacity: 1;
-  }
-}
-
-.hero {
-  height: 100dvh;
-  padding: 5% 2%;
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  rotate: -3deg;
-  transition: rotate 200ms;
-  animation: slideIn 0.8s ease-in-out forwards;
-}
-
-.hero-card {
-  --rounded: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem;
-  width: clamp(250px, 95%, 600px);
-  height: min(95dvh, 800px);
-
-  background-color: #000;
-  background-image: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.96) 10%,
-      rgba(0, 0, 0, 0.45)
-    ),
-    url("fastest_runner_on_the_planet.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position-x: 45%;
-  border-radius: var(--rounded);
-  position: relative;
-  animation: move-background-in 25s linear infinite alternate;
-}
-
-.hero:has(.hero-card:hover) {
-  rotate: 4deg;
-}
-
-.hero-card::before,
-.hero-card::after {
-  content: "";
-  position: absolute;
-  background-image: conic-gradient(
-    from var(--angle),
-    gold,
-    dodgerblue,
-    limegreen,
-    gold
-  );
-  inset: -1px;
-  z-index: -1;
-  border-radius: var(--rounded);
-  animation: spinningColor 2.3s linear infinite;
-}
-.hero-card::after {
-  filter: blur(60px);
-}
-
-.cta-btn {
-  color: transparent;
-  background: linear-gradient(
-    to right,
-    rgb(228, 116, 64),
-    rgb(255, 215, 0),
-    rgb(199, 74, 2)
-  );
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  clip-path: text;
-  text-decoration: none;
-  margin: 1.5rem;
-  position: relative;
-  animation: link 0.9s infinite alternate;
-  border: 2px solid rgba(255, 217, 0, 0.438);
-  border-radius: 0.25rem;
-  padding: 0.25rem 1rem;
-}
-@keyframes link {
-  to {
-    scale: 1.1;
-  }
-}
-
-@keyframes move-background-in {
-  to {
-    background-position-x: 65%;
-  }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateY(-50vh);
-  }
-}
-
-@property --angle {
-  syntax: "<angle>";
-  inherits: true;
-  initial-value: 0deg;
-}
-@keyframes spinningColor {
-  to {
-    --angle: 360deg;
   }
 }
 
@@ -412,4 +238,22 @@ nav a {
 /* Scrollbar thumb on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #ffffffbf; /* Color when hovering */
+}
+
+
+
+.row {
+  font-size: small;
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td, th {
+  border-inline: 1px solid limegreen;
+  padding-inline: 0.25rem;
 }
