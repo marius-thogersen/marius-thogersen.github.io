@@ -1,5 +1,5 @@
 async function readCSV() {
-    const response = await fetch('../resources/data-0110.csv');
+    const response = await fetch('data-0110.csv');
     if (!response.ok) {
         console.error('Failed to fetch the file:', response.statusText);
         return;
