@@ -253,9 +253,33 @@ table {
 
 td, th {
   border: 1px solid rgb(160, 204, 160);
-  padding-inline: .5rem;
+  padding: .5rem .25rem;
 }
 
 td {
   text-align: end;
+}
+
+td:hover {
+  background-color: #112244;
+  cursor: pointer;
+}
+
+td::after {
+  margin-left: 3px;
+
+}
+
+.avg_pace::after {
+  font-size: 0.75rem;
+  content:"min/km";
+}
+
+.distance::after {
+  content: 'km';
+}
+
+
+.ascent::after, .descent::after {
+  content: 'm';
 }

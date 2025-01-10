@@ -17,6 +17,7 @@ export default class Activity {
         const tr = document.createElement("tr")
         Object.keys(this).forEach(key => {
             const td = document.createElement("td")
+            td.classList.add(key)
             td.textContent = this[key] !== undefined ? this[key] : "";
             tr.appendChild(td);
         })

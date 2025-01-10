@@ -7,41 +7,47 @@ async function readCSV() {
         return;
     }
 
-    const data = await response.text();
+    const csvData = await response.text();
     //build data structure 
-    console.log("DATA:", data)
+    console.log("DATA:", csvData)
 
     const ignoreFields = [0, 2, 3, 5, 7, 8, 9, 10, 11, 13, 16, 17, 18, 19, 20, 21, 22, 23, 26, 27]
 
-    const rows = data.split("\n");
-    const myData = rows.map(row => splitRow(row, ignoreFields)).filter(row => row.length != 0)
+    const rows = csvData.split("\n").map(row => splitRow(row, ignoreFields)).filter(row => row.length != 0);
 
-    // console.log(myData)
+
+    /** @type {Array<String>} */
+    const header = rows[0];
 
     /** @type {Array<Activity>} */
-    const mappedData = myData.slice(1).map(r => Activity.fromObject(r))
-
-    console.log("MAPPED DATA", mappedData);
+    const activities = rows.slice(1).map(row => Activity.fromObject(row))
 
     //table header
-    const tr = document.createElement("tr");
-    document.getElementById("data").appendChild(tr);
-    myData[0].forEach(el => {
+    const headerElement = document.createElement("tr");
+    document.getElementById("data").appendChild(headerElement);
+    header.forEach(name => {
         const cell = document.createElement("th");
-        cell.innerText = el
-        tr.appendChild(cell)
+        cell.innerText = name
+        headerElement.appendChild(cell)
     });
     // populate the table
-    mappedData.forEach(d => {
-        const tr = d.toHtmlTableRow()
-        document.getElementById("data").appendChild(tr);
-    }
-    )
+    activities.forEach(activity => {
+        const row = activity.toHtmlTableRow()
+        document.getElementById("data").appendChild(row);
+    })
+
+    //table footer
+    const footer = document.createElement("tr")
+    myData.slice(1)
 
 
-
-
-
+    document.querySelectorAll(".time, .moving_time, .elapsed_time").forEach(timeCell => {
+        const pre3 = timeCell.innerText.substring(0, 3)
+        if (pre3 === "00:")
+            timeCell.innerText = timeCell.innerText.substring(3);
+        else if (pre3[0] === "0")
+            timeCell.innerText = timeCell.innerText.substring(1);
+    })
 }
 
 
