@@ -1,3 +1,5 @@
+import Activity from "./Activity.js";
+
 async function readCSV() {
     const response = await fetch('data-0110.csv');
     if (!response.ok) {
@@ -9,26 +11,39 @@ async function readCSV() {
     //build data structure 
     console.log("DATA:", data)
 
-    const ignoreFields = [0, 2, 3, 5, 9, 11, 17, 19, 20, 22,23,26, 27]
+    const ignoreFields = [0, 2, 3, 5, 7, 8, 9, 10, 11, 13, 16, 17, 18, 19, 20, 21, 22, 23, 26, 27]
 
     const rows = data.split("\n");
     const myData = rows.map(row => splitRow(row, ignoreFields)).filter(row => row.length != 0)
 
-    console.log(myData)
+    // console.log(myData)
 
+    /** @type {Array<Activity>} */
+    const mappedData = myData.slice(1).map(r => Activity.fromObject(r))
 
-    myData.forEach((row, rowIndex) => {
-        const tr = document.createElement("tr");
+    console.log("MAPPED DATA", mappedData);
+
+    //table header
+    const tr = document.createElement("tr");
+    document.getElementById("data").appendChild(tr);
+    myData[0].forEach(el => {
+        const cell = document.createElement("th");
+        cell.innerText = el
+        tr.appendChild(cell)
+    });
+    // populate the table
+    mappedData.forEach(d => {
+        const tr = d.toHtmlTableRow()
         document.getElementById("data").appendChild(tr);
-        row.forEach(el => {
-            const cell = document.createElement(rowIndex == 0 ? "th": "td");
-            cell.innerText = el
-            tr.appendChild(cell)
-        });
-        
+    }
+    )
 
-    })
+
+
+
+
 }
+
 
 
 function splitRow(data, ignoreFields) {
