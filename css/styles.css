@@ -304,3 +304,14 @@ td::after {
 .descent::after {
   content: 'm';
 }
+
+
+.date--format{
+
+}
+
+.time--format {
+  font-size: 0.75rem;
+  padding-right: .5rem;
+  color: orange;
+}

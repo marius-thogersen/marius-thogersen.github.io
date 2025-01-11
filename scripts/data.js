@@ -37,8 +37,8 @@ async function readCSV() {
     })
 
     //table footer
-    const footer = document.createElement("tr")
-    myData.slice(1)
+    const footerElement = document.createElement("tr")
+    // todo sum up  the data
 
 
     document.querySelectorAll(".time, .moving_time, .elapsed_time").forEach(timeCell => {

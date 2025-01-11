@@ -1,14 +1,16 @@
+import { toMonthAsText } from "./constants.js";
+
 export default class Activity {
-    
-    constructor(date,distance, time, avg_pace,ascent, descent, moving_time, elapsed_time) {
-        this.date = date;               
-        this.distance = distance;       
-        this.time = time;               
-        this.avg_pace = avg_pace;       
-        this.ascent = ascent;           
-        this.descent = descent;         
-                 
-        this.moving_time = moving_time; 
+
+    constructor(date, distance, time, avg_pace, ascent, descent, moving_time, elapsed_time) {
+        this.date = new Date(date.replace(" ", "T"));
+        this.distance = distance;
+        this.time = time;
+        this.avg_pace = avg_pace;
+        this.ascent = ascent;
+        this.descent = descent;
+
+        this.moving_time = moving_time;
         this.elapsed_time = elapsed_time;
     }
 
@@ -18,7 +20,21 @@ export default class Activity {
         Object.keys(this).forEach(key => {
             const td = document.createElement("td")
             td.classList.add(key)
-            td.textContent = this[key] !== undefined ? this[key] : "";
+            if (key === "date") {
+                const date = document.createElement("p")
+                date.classList.add("date--format");
+                date.textContent = this[key].getDate() + ". " + toMonthAsText(this[key].getMonth())
+                td.appendChild(date);
+                const time = document.createElement("p")
+                time.classList.add("time--format");
+                const hours = this[key].getHours() > 9 ? this[key].getHours() : "0" + this[key].getHours();
+                const minutes = this[key].getMinutes() > 9 ? this[key].getMinutes() : "0" + this[key].getMinutes();
+                time.textContent = hours + ":" + minutes
+
+                td.appendChild(time) 
+            } else {
+                td.textContent = this[key] !== undefined ? this[key] : "";
+            } 
             tr.appendChild(td);
         })
         return tr;
@@ -35,5 +51,5 @@ export default class Activity {
             data_list[6], // moving_time
             data_list[7]  // elapsed_time
         )
-    } 
+    }
 }
