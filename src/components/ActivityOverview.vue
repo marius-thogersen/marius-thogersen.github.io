@@ -1,8 +1,8 @@
 <template>
     <!-- This is a row that displays the overview data -->
     <div v-if="isLoading">loading..</div>
-    <div v-else class="row grid grid-cols-6 place-items-center gap-8 max-md:gap-1">
-        <div class="place-self-end">
+    <div v-else class="row grid max-sm:grid-cols-4 grid-cols-6 place-items-center gap-8 max-md:gap-1 max-sm:border-b-2 my-3">
+        <div class="place-self-end max-sm:row-span-2 max-sm:place-self-center">
                 <DateComponent :date="summary.date" />
         </div>
         <div class="grid grid-cols-2">
@@ -16,7 +16,7 @@
             <i class="fa-regular fa-clock"></i>
             <p class="w-[8ch]">{{ summary.elapsedTime }}</p>
         </div>
-        <div class="grid grid-cols-2 gap-2">
+        <div class="grid grid-cols-2 gap-2 max-sm:row-span-2">
             <i class="fa-solid fa-person-running"></i>
             {{ summary.averagePace }} /km
         </div>
@@ -86,6 +86,12 @@ i + * {
     text-align: end;
 }
 
+@media (max-width: 640px) {
+
+    i {
+        scale: 0.5;
+    }
+}
 
 
 </style>
