@@ -9,28 +9,28 @@
         <div class="place-self-end max-md:row-span-2 max-sm:place-self-center">
                 <DateComponent :date="summary.date" />
         </div>
-        <div class="grid grid-cols-2">
-            <i class="fa-solid fa-flag-checkered mr-2"></i>
-            <p class="w-[8ch]">
+        <div class="flex gap-1">
+            <i class="fa-solid fa-flag-checkered"></i>
+            <p class="">
             <DistanceComponent :distance="summary.distance" />
             km
         </p>
         </div>
-        <div class="grid grid-cols-2">
-            <i class="fa-regular fa-clock mr-2"></i>
-            <p class="w-[8ch]">{{ summary.elapsedTime }}</p>
+        <div class="flex gap-1">
+            <i class="fa-regular fa-clock"></i>
+            <p>{{ summary.elapsedTime }}</p>
         </div>
         <div class="grid grid-cols-2 gap-2 max-sm:row-span-2">
             <i class="fa-solid fa-person-running"></i>
             {{ summary.averagePace }} /km
         </div>
-        <div class="grid grid-cols-2">
-             <i class="fas fa-arrow-up mr-2"></i> 
-            <p class="w-[6ch]">{{ summary.ascent }} m</p>
+        <div class="flex gap-1">
+             <i class="fas fa-arrow-up"></i> 
+            <p>{{ summary.ascent }} m</p>
          </div>
-        <div class="grid grid-cols-2">
+        <div class="flex gap-1">
              <i class="fas fa-arrow-down mr-2"></i> 
-            <p class="w-[6ch]">{{ summary.descent }} m</p>
+            <p class="">{{ summary.descent }} m</p>
          </div>
     </div>
 </template>
@@ -96,6 +96,5 @@ i + * {
         scale: 0.5;
     }
 }
-
 
 </style>
