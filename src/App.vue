@@ -1,17 +1,31 @@
 <script setup>
-import ActivityOverview from './components/ActivityOverview.vue';
 import { ref } from 'vue';
-import {activities} from './data/activities';
-import ActivityTable from './components/ActivityTable.vue';
+import StreakView from './components/StreakView.vue';
+import ActivitiesView from './components/ActivitiesView.vue';
 
-const files = ref(activities.reverse())
+
+const currentTab = ref('StreakView')
+
+const tabs = {
+  StreakView, 
+  ActivitiesView
+}
+
+
 </script>
 
 <template>
-  <!-- <ActivityOverview :activityPath="files[0]" />  -->
-  <ActivityOverview v-for="file in files" :activityPath="file" />
-    <!-- <ActivityTable v-for="file in files" :msg="file" /> -->
-
+<div class="tabs">
+<component :is="tabs[currentTab]" class="tab"></component>
+</div>
+  <div class="buttons flex justify-center items-center ">
+<button
+ v-for="(_,tab) in tabs"
+ :key="tab"
+ :class="['tab-button', { active: currentTab === tab}]"
+ @click="currentTab = tab"
+ > {{ tab }}</button>
+</div>
 </template>
 
 <style scoped>
@@ -27,4 +41,14 @@ const files = ref(activities.reverse())
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 }
+
+.tabs {
+  height: 90dvh;
+  overflow-y: scroll;
+}
+
+.buttons {
+  height:10dvh;
+}
+
 </style>

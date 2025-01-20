@@ -10,7 +10,8 @@ const props = defineProps({distance: Number})
 const formattedDistance = ref(0)
 
 const formatDistance = () => {
-    formattedDistance.value = new Intl.NumberFormat('da-Dk').format( props.distance).slice(0,-1)
+    const number = new Intl.NumberFormat('da-DK').format( props.distance).slice(0, -1)
+    formattedDistance.value = parseFloat(number)
 } 
 onMounted(formatDistance)
 

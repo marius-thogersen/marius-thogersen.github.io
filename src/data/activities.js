@@ -24,7 +24,8 @@ const activities =
         '250114_2',
         '250115_1',
         '250115_2',
-        '250116'
+        '250116',
+        '250117'
     ];
 
 // Function to fetch the file
@@ -84,4 +85,19 @@ const fetchFile = async (path) => {
     return activities;
   }
 
-export {activities, fetchFile, allData};
+
+
+  async function streakData() {
+    const data = await allData();
+    const activities = data.map(act => {
+        const distance = act.laps.reduce((acc,val) => acc += val.totalDistance)
+        const time = act.laps.reduce((acc,val) => acc += val.totalTimerTime)
+        return {distance: distance, time: time}
+    }).reduce((acc,val) => {
+        acc.distance += val.distance
+        acc.time += val.time
+    })
+    return activities;
+  }
+
+export {activities, fetchFile, allData, streakData};

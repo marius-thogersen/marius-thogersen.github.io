@@ -1,8 +1,12 @@
 <template>
     <!-- This is a row that displays the overview data -->
     <div v-if="isLoading">loading..</div>
-    <div v-else class="row grid max-sm:grid-cols-4 grid-cols-6 place-items-center gap-8 max-md:gap-1 max-sm:border-b-2 my-3">
-        <div class="place-self-end max-sm:row-span-2 max-sm:place-self-center">
+    <div v-else class="row grid 
+    max-md:grid-cols-4 
+    grid-cols-6 
+    place-items-center 
+    gap-8 max-md:gap-1 max-sm:border-b-2 my-3">
+        <div class="place-self-end max-md:row-span-2 max-sm:place-self-center">
                 <DateComponent :date="summary.date" />
         </div>
         <div class="grid grid-cols-2">
@@ -13,7 +17,7 @@
         </p>
         </div>
         <div class="grid grid-cols-2">
-            <i class="fa-regular fa-clock"></i>
+            <i class="fa-regular fa-clock mr-2"></i>
             <p class="w-[8ch]">{{ summary.elapsedTime }}</p>
         </div>
         <div class="grid grid-cols-2 gap-2 max-sm:row-span-2">
@@ -21,11 +25,11 @@
             {{ summary.averagePace }} /km
         </div>
         <div class="grid grid-cols-2">
-             <i class="fas fa-arrow-up"></i> 
+             <i class="fas fa-arrow-up mr-2"></i> 
             <p class="w-[6ch]">{{ summary.ascent }} m</p>
          </div>
         <div class="grid grid-cols-2">
-             <i class="fas fa-arrow-down"></i> 
+             <i class="fas fa-arrow-down mr-2"></i> 
             <p class="w-[6ch]">{{ summary.descent }} m</p>
          </div>
     </div>
@@ -88,7 +92,7 @@ i + * {
 
 @media (max-width: 640px) {
 
-    i {
+    i:not(.fa-person-running) {
         scale: 0.5;
     }
 }
