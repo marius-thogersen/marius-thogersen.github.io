@@ -43,12 +43,12 @@ const tabs = {
 }
 
 .tabs {
-  height: 90dvh;
+  height: 90svh;
   overflow-y: scroll;
 }
 
 .buttons {
-  height:10dvh;
+  height:10svh;
 }
 
 </style>
