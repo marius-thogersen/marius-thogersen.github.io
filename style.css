@@ -58,7 +58,7 @@ body {
     }
 }
 
-.backyard-calc::after {
+.backyard-calc.rainbow::after {
     --deg: 0deg;
     content: "";
     position: absolute;

@@ -9,6 +9,15 @@ let pace = 300;
 const distance = 6.706;
 let isSliding = false;
 
+
+const params = new URLSearchParams(window.location.search)
+console.log("HELLo", params)
+if(params.get("rainbowBorder") === "true"){
+    console.log()
+    const div = document.querySelector(".backyard-calc")
+    div.classList.add("rainbow")
+}
+
 paceEl.addEventListener("input", (e) => {
   if (!isSliding) {
     isSliding = true;
