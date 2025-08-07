@@ -63,7 +63,7 @@ body {
     content: "";
     position: absolute;
     z-index: -1;
-    inset: -20px;
+    inset: -5px;
     border-radius: 15px;
     background: conic-gradient(from var(--deg),
             gold,
