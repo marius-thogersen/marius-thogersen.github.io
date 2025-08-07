@@ -1,24 +1,20 @@
-*, *::after, *::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html {
-
-}
+html {}
 
 :root {
     --main-color: #303031;
 }
 
-.dark {
+.dark {}
 
-}
-
-.light {
-
-}
+.light {}
 
 
 body {
@@ -29,8 +25,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-  justify-content: center;
-  align-items: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .title {
@@ -39,65 +35,87 @@ body {
 }
 
 .backyard-calc {
-  padding: 1.25rem;
-  background: var(--main-color);
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  position: relative;
-  border-radius: 10px;
+    padding: 1.25rem;
+    background: var(--main-color);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    border-radius: 10px;
 }
+
+
+@property --deg {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+
+@keyframes rotate {
+
+    to {
+        --deg: 360deg;
+    }
+}
+
 .backyard-calc::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: -20px;
-  border-radius: 15px;
-  background: conic-gradient(
-    gold,
-    orange,
-    red,
-    rebeccapurple,
-    blue,
-    lime,
-    gold
-  );
+    --deg: 0deg;
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -20px;
+    border-radius: 15px;
+    background: conic-gradient(from var(--deg),
+            gold,
+            orange,
+            red,
+            rebeccapurple,
+            blue,
+            lime,
+            gold);
+
+    animation: rotate 15s linear infinite forwards;
 }
-h1, h2{
+
+
+h1,
+h2 {
     margin-bottom: 15px;
 }
+
 #paceInput {
-  --color: white;
-  position: relative;
+    --color: white;
+    position: relative;
 }
 
 #paceInput.sliding {
-  --color: grey;
+    --color: grey;
 }
 
 #paceInput::before,
 #paceInput::after {
-  color: var(--color);
-  position: absolute;
-  top: -0.75rem;
+    color: var(--color);
+    position: absolute;
+    top: -0.75rem;
 }
 
 #paceInput::before {
-  content: "3:30";
-  left: -1.5ch;
+    content: "3:30";
+    left: -1.5ch;
 }
 
 #paceInput::after {
-  content: "10:00";
-  right: -1.5ch;
+    content: "10:00";
+    right: -1.5ch;
 }
+
 .text-end {
-  text-align: end;
+    text-align: end;
 }
 
 .flex-between {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .text-md {
@@ -105,20 +123,20 @@ h1, h2{
 }
 
 input[type="range"] {
-  width: min(320px, 100vw);
+    width: min(320px, 100vw);
 }
 
 .floating-element {
-  display: none;
-  position: absolute;
-  color: white;
+    display: none;
+    position: absolute;
+    color: white;
 }
 
 .floating-element.show {
-  display: block;
+    display: block;
 }
 
 
 progress {
-  width: 100%;
+    width: 100%;
 }
