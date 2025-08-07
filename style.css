@@ -1,0 +1,28 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+
+}
+
+:root {
+    
+}
+
+.dark {
+
+}
+
+.light {
+
+}
+
+
+body {
+    background: #4b4b4f;
+    color: white;
+    font: 22px Verdana;
+}
