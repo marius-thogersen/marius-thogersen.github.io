@@ -9,7 +9,7 @@ html {
 }
 
 :root {
-    
+    --main-color: #303031;
 }
 
 .dark {
@@ -22,7 +22,103 @@ html {
 
 
 body {
-    background: #4b4b4f;
+    background: var(--main-color);
     color: white;
+    min-height: 100dvh;
     font: 22px Verdana;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.backyard-calc {
+  padding: 1.25rem;
+  background: var(--main-color);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  border-radius: 10px;
+}
+.backyard-calc::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -20px;
+  border-radius: 15px;
+  background: conic-gradient(
+    gold,
+    orange,
+    red,
+    rebeccapurple,
+    blue,
+    lime,
+    gold
+  );
+}
+h1, h2{
+    margin-bottom: 15px;
+}
+#paceInput {
+  --color: white;
+  position: relative;
+}
+
+#paceInput.sliding {
+  --color: grey;
+}
+
+#paceInput::before,
+#paceInput::after {
+  color: var(--color);
+  position: absolute;
+  top: -0.75rem;
+}
+
+#paceInput::before {
+  content: "3:30";
+  left: -1.5ch;
+}
+
+#paceInput::after {
+  content: "10:00";
+  right: -1.5ch;
+}
+.text-end {
+  text-align: end;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-md {
+    font-size: .8em;
+}
+
+input[type="range"] {
+  width: min(320px, 100vw);
+}
+
+.floating-element {
+  display: none;
+  position: absolute;
+  color: white;
+}
+
+.floating-element.show {
+  display: block;
+}
+
+
+progress {
+  width: 100%;
 }
