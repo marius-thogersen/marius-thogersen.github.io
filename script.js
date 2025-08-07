@@ -2,7 +2,7 @@ const paceResult = document.getElementById("pace");
 const paceEl = document.getElementById("paceInput");
 const timeResult = document.getElementById("run");
 const restResult = document.getElementById("rest");
-const floatingElement = document.getElementById("floatingElement");
+
 const timeline = document.getElementById("timeline")
 
 let pace = 300;
@@ -13,14 +13,13 @@ paceEl.addEventListener("input", (e) => {
   if (!isSliding) {
     isSliding = true;
     paceEl.classList.add("sliding");
-    onSliding();
   }
 
   const seconds = e.target.value;
   pace = parseInt(seconds);
   const paceString = formatSeconds(pace);
   paceResult.innerText = paceString;
-  floatingElement.innerText = paceString;
+  
   const finishTime = Math.round(pace * distance + 0.49);
   const restTime = 3600 - finishTime;
   timeResult.innerText = formatSeconds(finishTime);
@@ -31,8 +30,6 @@ paceEl.addEventListener("input", (e) => {
 paceEl.addEventListener("change", (e) => {
   paceEl.classList.remove("sliding");
   isSliding = false;
-  floatingElement.classList.remove("show");
-  removeEventListener("pointermove", positionFloater);
 });
 
 function formatSeconds(seconds) {
@@ -51,13 +48,3 @@ function formatSeconds(seconds) {
   return result;
 }
 
-function onSliding() {
-  addEventListener("pointermove", positionFloater);
-  floatingElement.classList.add("show");
-}
-
-function positionFloater(e) {
-  const y = paceEl.getBoundingClientRect().y + 16;
-  floatingElement.style.left = `${e.clientX - 10}px`;
-  floatingElement.style.top = `${y}px`;
-}
