@@ -77,6 +77,11 @@ body {
     animation: rotate 15s linear infinite forwards;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .backyard-calc.rainbow::after {
+        animation: none;
+    }
+}
 
 h1,
 h2 {
