@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marius</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="title">
+        <h2> Backyard Ultra Pace Calculator</h2>
+        <p>6,706 km every hour on the hour</p>
+    </div>
+    <div class="backyard-calc">
+        <div class="flex-between">
+            <div>Pace:</div>
+            <div>
+                <span id="pace">5:00</span> min/km
+            </div>
+        </div>
+        <input id="paceInput" type="range" min="210" max="600" step="1" value="300">
+        <div class="timeline text-md">
+            <div class="flex-between">
+                <span>Løb</span>
+                <span>Pause</span>
+            </div>
+            <div class="flex-between">
+                <div>
+                    <span id="run">33:32</span> min
+                </div>
+                <div>
+                    <span id="rest">26:27</span> min
+                </div>
+            </div>
+            <progress id="timeline" min="0" value="2012" max="3600"></progress>
+        </div>
+    </div>
+
+    <div id="floatingElement" class="floating-element">What</div>
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
